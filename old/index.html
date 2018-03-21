@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html class="no-skrollr">
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<title>Alan Fung's Personal Homepage</title>
+
+	<style type="text/css">
+	* {
+		padding:0;
+		margin:0;
+	}
+
+	html, body {
+		height:100%;
+	}
+
+	.skrollr-desktop body {
+		height:100% !important;
+	}
+
+	body {
+		font-family:sans-serif,Arial;
+	}
+
+	p {
+		margin:1em 0;
+	}
+	
+	a {
+		color:rgb(255,0,0)
+	}
+
+	.parallax-image-wrapper {
+		position:fixed;
+		left:0;
+		width:100%;
+		overflow:hidden;
+	}
+
+	.parallax-image-wrapper-50 {
+		height:50%;
+		top:-50%;
+	}
+
+	.parallax-image-wrapper-100 {
+		height:100%;
+		top:-100%;
+	}
+
+	.parallax-image {
+		display:none;
+		position:absolute;
+		bottom:0;
+		left:0;
+		width:100%;
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size:cover;
+	}
+
+	.parallax-image-50 {
+		height:200%;
+		top:-50%;
+	}
+
+	.parallax-image-100 {
+		height:100%;
+		top:0;
+	}
+
+	.parallax-image.skrollable-between {
+		display:block;
+	}
+
+	.no-skrollr .parallax-image-wrapper {
+		display:none !important;
+	}
+
+	#skrollr-body {
+		height:100%;
+		overflow:visible;
+		position:relative;
+	}
+
+	.gap {
+		background:transparent center no-repeat;
+		background-size:cover;
+	}
+
+	.skrollr .gap {
+		background:transparent !important;
+	}
+
+	.gap-50 {
+		height:50%;
+	}
+
+	.gap-100 {
+		height:100%;
+	}
+
+	.header, .content {
+		background:#fff;
+		padding:1em;
+
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+	
+	.noselect {
+	    -webkit-touch-callout: none;
+	    -webkit-user-select: none;
+	    -khtml-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+    }
+    
+    .button {
+	    height: 2.5vw; 
+	    width: 9%; 
+	    position: fixed; 
+	    font-size: 1.5vw; 
+	    text-align: center; 
+	    cursor: pointer;
+    }
+
+	.content-full {
+		height:100%;
+	}
+
+	#done, #contact {
+		height:75%;
+	}
+	</style>
+		
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	    $("#to_top").click(function(){
+	        $('html, body').animate({
+	        	scrollTop: 0
+	        }, 2000);
+	    });
+	    $("#to_about").click(function(){
+	        $('html, body').animate({
+	        	scrollTop: $("#about_me").offset().top - 0.05*($(window).height())
+	        }, 2000);
+	    });
+	    $("#to_theses").click(function(){
+	        $('html, body').animate({
+	        	scrollTop: $("#thesis").offset().top - 0.05*($(window).height())
+	        }, 2000);
+	    });
+	    $("#to_publication").click(function(){
+	        $('html, body').animate({
+	        	scrollTop: $("#publication").offset().top - 0.05*($(window).height())
+	        }, 2000);
+	    });
+	    $("#to_awards").click(function(){
+	        $('html, body').animate({
+	        	scrollTop: $("#awards").offset().top - 0.05*($(window).height())
+	        }, 2000);
+	    });
+	    $("#to_contact").click(function(){
+	        $('html, body').animate({
+	        	scrollTop: $("#contact").offset().top - 0.05*($(window).height())
+	        }, 2000);
+	    });
+	});
+	</script>
+</head>
+
+<body>
+	<!--
+		We position the images fixed and therefore need to place them outside of #skrollr-body.
+		We will then use data-anchor-target to display the correct image matching the current section (.gap element).
+	-->
+
+	<div
+		class="parallax-image-wrapper parallax-image-wrapper-100"
+		data-anchor-target=".gap"
+		data-bottom-top="transform:translate3d(0px, 200%, 0px)"
+		data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+		<div
+			class="parallax-image parallax-image-100"
+			style="background-image:url(./bg/chichibu.jpg); height: 100vh;"
+			data-anchor-target=".gap"
+			data-bottom-top="transform: translate3d(0px, -80%, 0px);"
+			data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+		></div>
+		<!--the +/-80% translation can be adjusted to control the speed difference of the image-->
+	</div>
+
+	<div
+		class="parallax-image-wrapper parallax-image-wrapper-100"
+		data-anchor-target="#about_me + .gap"
+		data-bottom-top="transform:translate3d(0px, 200%, 0px)"
+		data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+		<div
+			class="parallax-image parallax-image-100"
+			style="background-image:url(./bg/riken2012.jpg); height: 100vh;"
+			data-anchor-target="#about_me + .gap"
+			data-bottom-top="transform: translate3d(0px, -80%, 0px);"
+			data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+		></div>
+		<!--the +/-80% translation can be adjusted to control the speed difference of the image-->
+	</div>
+
+	<div
+		class="parallax-image-wrapper parallax-image-wrapper-100"
+		data-anchor-target="#thesis + .gap"
+		data-bottom-top="transform:translate3d(0px, 200%, 0px)"
+		data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+		<div
+			class="parallax-image parallax-image-100"
+			style="background-image:url(./bg/ust_view.jpg); height: 100vh;"
+			data-anchor-target="#thesis + .gap"
+			data-bottom-top="transform: translate3d(0px, -80%, 0px);"
+			data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+		></div>
+		<!--the +/-80% translation can be adjusted to control the speed difference of the image-->
+	</div>
+
+	<div
+		class="parallax-image-wrapper parallax-image-wrapper-100"
+		data-anchor-target="#publication + .gap"
+		data-bottom-top="transform:translate3d(0px, 200%, 0px)"
+		data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+		<div
+			class="parallax-image parallax-image-100"
+			style="background-image:url(./bg/lake_tahoe.jpg); height: 100vh;"
+			data-anchor-target="#publication + .gap"
+			data-bottom-top="transform: translate3d(0px, -80%, 0px);"
+			data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+		></div>
+		<!--the +/-80% translation can be adjusted to control the speed difference of the image-->
+	</div>
+
+	<div
+		class="parallax-image-wrapper parallax-image-wrapper-100"
+		data-anchor-target="#awards + .gap"
+		data-bottom-top="transform:translate3d(0px, 200%, 0px)"
+		data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+		<div
+			class="parallax-image parallax-image-100"
+			style="background-image:url(./bg/lake_view.jpg); height: 100vh;"
+			data-anchor-target="#awards + .gap"
+			data-bottom-top="transform: translate3d(0px, -80%, 0px);"
+			data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+		></div>
+		<!--the +/-80% translation can be adjusted to control the speed difference of the image-->
+	</div>
+
+
+	<div id="skrollr-body">
+		<!-- <div class="header" id="dragons">
+			Skrollr demo of classic parallax sections. Degrades without JavaScript (could be disabled on mobile without breaking everything).
+		</div> -->
+		<div class="gap gap-100" style="background-image:url(./bg/chichibu.jpg); ">
+			<div class="noselect" style="position: absolute; left: 5%; top: 5%; 
+			width: 60%;  padding-top: 1%;padding-bottom: 1%; cursor:default ;"  
+			data-0p="opacity:0.7;left:5%;top:5%" data-30p="opacity:0;left:5%;top:30%" id="title">
+			<img src="img/title.png" style="width:100%" alt="">
+			</div>
+			<div class="noselect" style="position: absolute; right: 200%; bottom: 10%; 
+			background-color: white; width: 45%;  padding-top: 1%;padding-bottom: 1%; cursor:default ;"  
+			data-0p="opacity:0.7;left:55%" data-60p="opacity:0;left:55%" data-61p="left:-100%" id="desc_chichibu">
+			<div style="text-align: center; font-size: 20pt; font-size: 2vw">
+			Picture: Chichibu Bridge, Saitama, Japan<br/>
+			</div>
+			</div>
+		</div>
+		<div class="content" id="about_me" style="background-image: url(./bg/geometry2.png); ">
+		<img src="img/about_me.png" style="opacity:0.7;height:28px; height:4vw" alt="">
+		<div style="font-size: 24pt;font-size: 2.5vw"><br></div>
+		<table style="width: 80%; font-size: 16pt; font-size: 1.5vw; padding: 1%; min-width: 800px;min-width: 80vw; ">
+			<tr>
+				<td style="vertical-align: top; text-align: left; width:15%">Name:</td>
+				<td style="vertical-align: top; text-align: left; ">Chi Chung Alan Fung 馮志聰<br>
+				チーチュン ファング<br><br></td>
+				<td rowspan="5" style="width:40%">
+					<img src="img/me.jpg" alt="" style="width:100%">
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left; ">Occupation:</td>
+				<td style="vertical-align: top; text-align: left; ">Research Scientist<br>
+				研究員<br><br></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left; ">Affiliation:</td>
+				<td style="vertical-align: top; text-align: left; ">
+				[Apr 2015 - now ]<br>
+				Laboratory for Neural Circuit Theory,<br>
+				RIKEN Brain Science Institute<br/>理化学研究所　脳科学総合研究センター<br>脳回路機能理論研究チーム
+				(<a href="http://nct.brain.riken.jp/index.xhtml.en" target="_blank">homepage</a>)<br>
+				Host: Prof. Tomoki Fukai<br><br></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left; ">Past Affiliation:</td>
+				<td style="vertical-align: top; text-align: left; ">
+				[Spring 2006 - Mar 2015]<br>
+				Department of Physics, The Hong Kong University of 
+				Science and Technology (HKUST)<br/>香港科技大學　物理系<br>
+				Host: Prof. Kwok-Yee Michael Wong 王國彝教授 (<a href="http://www.phys.ust.hk/phkywong/" target="_blank">homepage</a>)<br><br></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left; ">Education:</td>
+				<td style="vertical-align: top; text-align: left; ">
+				PhD in Physics, HKUST (2013)<br/>
+				MPhil in Physics, HKUST (2011)<br/>
+				BSc in Mathematics and Physics, HKUST (2008)<br><br></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left; ">Research Interest:</td>
+				<td colspan="2" style="vertical-align: top; text-align: left; ">
+					<ul>
+						<li>Continuous attractor neural networks；</li>
+						<li>Short-term synaptic plasticity；</li>
+						<li>Saccadic remapping；and</li>
+						<li>Complex systems</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		</div>
+		
+		<div class="gap gap-100" style="background-image:url(./bg/riken2012.jpg); ">
+		<div style="position: relative; top: 75%; left: -100%; background-color: white; width: 45%;  
+		padding-top: 1%;padding-bottom: 1%; cursor:default "
+		data-20p-top-top="opacity:0;left:0" data-50p-top-top="opacity:0.7;left:0">
+			<div class="noselect" style="text-align: center; font-size: 20pt; font-size: 2vw">
+			RIKEN @ Wako-shi during my internship<br/> visit at Prof. Amari's lab in 2012.</div>
+		</div>
+		</div>
+		<div class="content" id="thesis" style="background-image: url(./bg/geometry2.png); ">
+		<img src="img/theses.png" alt="" style="opacity:0.7;height:28px; height:4vw">
+		<div style="font-size: 24pt;font-size: 2.5vw"><br></div>
+		<table style="width:85%">
+			<tr>
+				<td rowspan="2" style="width:30%;vertical-align: top; text-align: left; "><img src="img/thesis.jpg" style="width:100%" alt=""></td>
+				<td style="vertical-align: top; text-align: left; ">
+				<div style="font-size: 20pt;font-size: 1.8vw">PhD Thesis (2013)</div>
+				<table style="width:100%; font-size: 16pt; font-size: 1.5vw ;padding: 1%;">
+					<tr>
+						<td style="width:25%;vertical-align: top; text-align: left;">Title:</td>
+						<td style="vertical-align: top; text-align: left; ">
+						Dynamics of Continuous Attractor Neural
+						 Networks with Dynamical Synapses</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top; text-align: left; ">Supervisor:</td>
+						<td style="vertical-align: top; text-align: left; ">
+						Prof. K. Y. Michael Wong</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top; text-align: left; ">Examiners:</td>
+						<td style="vertical-align: top; text-align: left; ">
+						Prof. H. Benjamin Peng (Division of Life Science)<br>
+						Prof. Xiangrong Wang (Department of Physics)<br>
+						Prof. Bradley A. Foreman (Department of Physics)<br>
+						Prof. Changsong Zhou (Hong Kong Baptist University)<br>
+						Prof. Chi Keung Chan (Academia Sinica, Taiwan)</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top; text-align: left; ">Highlights:</td>
+						<td style="vertical-align: top; text-align: left; ">
+							<ol>
+								<li>Analysis of intrinsic dynamics of continuous attractor neural networks (CANNs) with synaptic plasticity</li>
+								<li>Analysis of tracking dynamics of continuous attractor with Synaptic Depression</li>
+								<li>Introduction of a model that enhances perception resolution</li>
+								<li>Two-dimensional CANNs with short-term synaptic plasticity</li>
+							</ol>
+						</td>
+					</tr>
+					<tr>
+					<td style="vertical-align: top; text-align: left; ">Download:</td><td><a href="theses/phd_thesis.pdf" target="_blank">PDF</a><br><br></td>
+					</tr>
+				</table>
+				</td>			
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left; ">
+				<div style="font-size: 20pt;font-size: 1.8vw">Mphil Thesis (2010)</div>
+				<table style="width:100;font-size: 16pt; font-size:1.5vw; padding: 1%;">
+					<tr>
+						<td style="vertical-align: top; text-align: left; width:25%;">Title:</td>
+						<td style="vertical-align: top; text-align: left; ">
+						Dynamics of Continuous Attractor Neural Networks</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top; text-align: left; ">Supervisor:</td>
+						<td style="vertical-align: top; text-align: left; ">
+						Prof. K. Y. Michael Wong</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top; text-align: left; ">Examiners:</td>
+						<td style="vertical-align: top; text-align: left; ">
+						Prof. Yilong Han (Department of Physics)<br>
+						Prof. Bradley A. Foreman (Department of Physics)</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top; text-align: left; ">Highlights:</td>
+						<td style="vertical-align: top; text-align: left; ">
+							<ol>
+								<li>Simulation work on continuous attractor neural 
+								networks with Mexican-hat couplings</li>
+								<li>Analysis of Dynamics of two-dimensional continuous 
+								attractor neural networks with divisive inhibition</li>
+								<li>Analysis of one-dimensional continuous attractor neural 
+								networks with time-dependent couplings</li>
+							</ol>
+						</td>
+					</tr>
+					<tr>
+					<td style="vertical-align: top; text-align: left; ">Download:</td><td><a href="theses/mphil_thesis.pdf" target="_blank">PDF</a><br><br></td>
+					</tr>
+				</table>
+				</td>			
+			</tr>
+		</table>				
+		</div> 
+		
+		<div class="gap gap-100" style="background-image:url(./bg/ust_view.jpg); ">
+		<div style="position: relative; top: 70%; left: -100%; background-color: white; width: 45%;  
+		padding-top: 1%;padding-bottom: 1%; cursor:default "
+		data-20p-top-top="opacity:0;left:0" data-50p-top-top="opacity:0.7;left:0">
+			<div class="noselect" style="text-align: center; font-size: 20pt; font-size: 2vw">
+			The seascape of HKUST.<br/>
+			HKUST is the university where I<br/>have stayed for almost 10 years.</div>
+		</div>
+		</div>
+		<div class="content" id="publication" style="background-image: url(./bg/geometry2.png); ">
+		<img src="img/publications.png" alt="" style="opacity:0.7;height:28px; height:4vw">
+		<div style="font-size: 24pt;font-size: 2.5vw"><br></div>
+		<div style="font-size: 20pt;font-size: 1.8vw">Review</div>
+		<table style="width:80%; font-size: 16pt; font-size: 1.5vw; padding: 1%;">
+			<tr><td style="width:5%"></td>
+				<td style="vertical-align: top; text-align: left; ">
+					<ol reversed>
+						<li>
+							Continuous Attractor Neural Networks: Candidate of a Canonical Model for Neural Information Representation (<a href="http://f1000research.com/articles/5-156/" target="_blank">url</a>)<br>
+							Si Wu, K. Y. Michael Wong, <b>C. C. Alan Fung</b>, Yuanyuan Mi, Wenhao Zhang<br>
+							<i>F1000Research</i> <b>5</b> (F1000 Faculty Rev) 156 (2016) <br><br> 
+						</li>
+					</ol>
+				</td>
+			</tr>
+		</table>
+		<div style="font-size: 20pt;font-size: 1.8vw">Original Research Articles</div>
+		<table style="width:80%; font-size: 16pt; font-size: 1.5vw; padding: 1%;">
+			<tr><td style="width:5%"></td>
+				<td style="vertical-align: top; text-align: left; ">
+					<ol reversed>
+						<li>
+							Top-down cortical input during NREM sleep consolidates perceptual memory (<a href="http://science.sciencemag.org/content/early/2016/05/25/science.aaf0902" target="_blank">url</a>)<br>
+							D. Miyamoto, D. Hirai, <b>C. C. A. Fung</b>, A. Inutsuka, M. Odagawa, T. Suzuki, R. Boehringer, C. Adaikkan, C. Matsubara, N. Matsuki, T. Fukai, T. J. McHugh, A. Yamanaka, M. Murayama<br>
+							<i>Science</i> (2016) <br> 
+							<br><br> 
+						</li>
+						<li>
+							Perisaccadic receptive field expansion in the lateral intraparietal area (<a href="http://www.cell.com/neuron/fulltext/S0896-6273%2816%2900172-0" target="_blank">url</a>, <a href="http://www.sciencedirect.com/science/article/pii/S0896627316001720" target="_blank">Science Direct</a>)<br>
+							Xiaolan Wang<sup>#</sup>, <b>C. C. Alan Fung</b><sup>#</sup>, Shaobo Guan, Si Wu, Michael E. Goldberg and Mingsha Zhang<br>
+							<i>Neuron</i> <b>90</b>(2) 400-409 (2016) <br> 
+							<sup>#</sup>Co-First authors<br><br> 
+						</li>
+						<li>
+							Rich spectrum of neural field dynamics in the presence of short-term synaptic depression (<a href="http://journals.aps.org/pre/abstract/10.1103/PhysRevE.92.032908" target="_blank">url</a>, <a href="http://arxiv.org/abs/1502.03662" target="_blank">arXiv</a>)<br>
+							He Wang, Kin Lam, <b>C. C. Alan Fung</b>, K. Y. Michael Wong, and Si Wu<br>
+							<i>Physical Review E</i> <b>92</b>(3) 032908 (2015) <br><br> 
+						</li>
+						<li>
+							Fluctuation-response Relation Unifies Dynamical Behaviors in Neural Fields (<a href="http://journals.aps.org/pre/abstract/10.1103/PhysRevE.92.022801" target="_blank">url</a>, <a href="http://arxiv.org/abs/1409.2114" target="_blank">arXiv</a>)<br>
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong, Hongzi Mao and Si Wu<br>
+							<i>Physical Review E</i> <b>92</b>(2) 022801 (2015) <br> <br>
+						</li>
+						<li>
+							Spontaneous Motion on Two-dimensional Continuous Attractors 
+							(<a href="http://www.mitpressjournals.org/doi/abs/10.1162/NECO_a_00711" target="_blank">url</a>, <a href="http://arxiv.org/abs/1502.00127" target="_blank">arXiv</a>)<br>
+							<b>C. C. Alan Fung</b> and S.-I. Amari <br>
+							<i>Neural Computation</i> <b>27</b>(3) 507-547 (2015) <br> <br>
+						</li>
+						<li>
+							Resolution Enhancement in Neural Networks with Dynamical Synapses 
+							(<a href="http://journal.frontiersin.org/Journal/10.3389/fncom.2013.00073/full" target="_blank">url</a>) <br>
+							<b>C. C. Alan Fung</b>, He Wang, Kin Lam, K. Y. Michael Wong and Si Wu<br>
+							<i>Frontiers in Computational Neuroscience</i> <b>7</b> 73 (2013) <br> <br>
+						</li>
+						<li>
+							Dynamical Synapses Enhance Neural Information Processing: Gracefulness, Accuracy and Mobility 
+							(<a href="http://www.mitpressjournals.org/doi/abs/10.1162/NECO_a_00269" target="_blank">url</a>, 
+							<a href="http://arxiv.org/abs/1104.0305" target="_blank">arXiv</a>)<br>
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong, He Wang and Si Wu <br>
+							<i>Neural Computation</i> <b>24</b>(5) 1147-1185 (2012)  <br> <br>
+						</li>
+						<li>
+							Moving Bump in a Continuous Manifold: A Comprehensive Study of the Tracking Dynamics of Continuous Attractor Neural Networks 
+							(<a href="http://www.mitpressjournals.org/doi/abs/10.1162/neco.2009.07-08-824" target="_blank">url</a>, 
+							<a href="http://arxiv.org/abs/0808.2341" target="_blank">arXiv</a>)<br>
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong and Si Wu <br>
+							<i>Neural Computation</i> <b>22</b>(3) 752-792 (2010) <br> <br>
+						</li>
+						<li>
+							Dynamics of neural networks with continuous attractors 
+							(<a href="http://iopscience.iop.org/0295-5075/84/1/18002/" target="_blank">url</a>,
+							<a href="http://arxiv.org/abs/0801.4461" target="_blank">arXiv</a>)<br>
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong and Si Wu <br>
+							<i>Europhysics Letters</i> <b>84</b>(1) 18002 (2008)<br> <br>
+						</li>
+					</ol>
+				</td>
+			</tr>
+		</table>
+		
+		<div style="font-size: 20pt;font-size: 1.8vw">Conference Proceedings</div>
+		<table style="width:80%; font-size: 16pt; font-size: 1.5vw; padding: 1%;">
+			<tr><td style="width:5%;"></td>
+				<td style="vertical-align: top; text-align: left; ">
+					<ol reversed>
+						<li>
+							Spike Frequency Adaptation Implements Anticipative Tracking in Continuous Attractor Neural Networks (<a href="http://papers.nips.cc/paper/5623-spike-frequency-adaptation-implements-anticipative-tracking-in-continuous-attractor-neural-networks" target="_blank">url</a>)<br>
+							Yuanyuan Mi, <b>C. C. Alan Fung</b>, K. Y. Michael Wong and Si Wu<br>
+							<i>Advances in Neural Information Processing Systems</i> <b>27</b> (2014) <br>
+							(acceptance rate ~ 24.7%)<br>
+							Conference Venue: Montreal Convention Center, Montreal, Canada <br>
+							Conference Date: 8 – 13 December, 2014  <br> <br>
+						</li>
+						<li>
+							Delay Compensation with Dynamical Synapses (<a href="http://papers.nips.cc/paper/4776-delay-compensation-with-dynamical-synapses" target="_blank">url</a>)<br>
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong and Si Wu<br>
+							<i>Advances in Neural Information Processing Systems</i> <b>25</b> (2012) <br> 
+							(Top 5%, acceptance rate ~ 25.2%)<br>
+							Conference Venue: Lake Tahoe, Nevada, U. S. A. <br>
+							Conference Date: 3 – 5 December, 2012 <br><br>
+						</li>
+						<li>
+							Dynamical Synapses Enhances Mobility, Memory and Decoding (<a href="http://link.springer.com/chapter/10.1007/978-94-007-4792-0_18" target="_blank">url</a>)<br>
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong and Si Wu <br>
+							<i>Advances in Cognitive Neurodynamics (III)</i> <br>
+							Conference Venue: Niseko Village, Hokkaido, Japan<br>
+							Conference Date: 9 – 13 June, 2011<br><br>
+						</li>
+						<li>
+							Attractor Dynamics with Synaptic Depression (<a href="http://papers.nips.cc/paper/3939-attractor-dynamics-with-synaptic-depression" target="_blank">url</a>) <br>
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong, He Wang and Si Wu<br> 
+							<i>Advances in Neural Information Processing Systems</i> <b>23</b> (2010)<br>
+							(Top 6%, acceptance rate ~ 24.0%) <br>
+							Conference Venue: Vancouver, Canada<br>
+							Conference Date: 6 – 8 December, 2010<br><br>
+						</li>
+						<li>
+							Tracking dynamics of two-dimensional continuous attractor neural networks 
+							(<a href="http://iopscience.iop.org/1742-6596/197/1/012017" target="_blank">url</a>,
+							<a href="http://arxiv.org/abs/0910.1520" target="_blank">arXiv</a>)<br>
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong and Si Wu <br>
+							<i>Journal of Physics Conference</i> <b>197</b> 012017 <br>
+							Conference Venue: Kyoto, Japan <br>
+							Conference Date: 13 – 16 September, 2009 <br> <br>
+						</li>
+						<li>
+							Tracking Changing Stimuli in Continuous Attractor Neural Networks (<a href="http://papers.nips.cc/paper/3528-tracking-changing-stimuli-in-continuous-attractor-neural-networks" target="_blank">url</a>)<br> 
+							<b>C. C. Alan Fung</b>, K. Y. Michael Wong and Si Wu <br>
+							<i>Advances in Neural Information Processing Systems</i> <b>21</b> (2008)<br> 
+							(Acceptance rate ~ 24.5%) <br>
+							Conference Venue: Vancouver, Canada <br>
+							Conference Date: 8 – 10 December, 2008 <br> <br>
+						</li>
+					</ol>
+				</td>
+			</tr>
+		</table>
+		
+		<div style="font-size: 20pt;font-size: 1.8vw">Manuscripts to be Submitted or Under Review</div>
+		<table style="width:80%;font-size: 16pt; font-size:1.5vw; padding: 1%;">
+			<tr><td style="width:5%;"></td>
+				<td style="vertical-align: top; text-align: left; ">
+					<ul>
+						<li>
+							Slow Negative Feedback Modulation Implements Anticipative Tracking in Neural Systems<br>
+							Yuanyuan Mi, Yan Xia, <b>C. C. Alan Fung</b>, Shun-ichi Amari, K. Y. Michael Wong and Si Wu<br><br> 
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		</div> 
+		
+		<div class="gap gap-100" style="background-image: url(./bg/lake_tahoe.jpg); ">
+		<div style="position: relative; top: 75%; left: -100%; background-color: white; width: 45%;  
+		padding-top: 1%;padding-bottom: 1%; cursor:default "
+		data-20p-top-top="opacity:0;left:0" data-50p-top-top="opacity:0.7;left:0">
+			<div class="noselect" style="text-align: center; font-size: 20pt; font-size: 2vw">
+			Lake Tahoe, the place<br/>
+			where NIPS 2012 was held.</div>
+		</div>
+		</div>
+		<div class="content" id="awards" style="background-image: url(./bg/geometry2.png); ">
+		<img src="img/awards.png" alt="" style="opacity:0.7;height:28px; height:4vw">
+		<div style="font-size: 24pt;font-size:2.5vw"><br></div>
+		
+		<div style="font-size: 20pt;font-size:2vw">Hong Kong</div>
+		<table style="width:80%; font-size: 16pt; font-size:1.5vw; line-height: 20pt; line-height:2vw; padding: 1%;">
+			<tr><td style="width:5%"></td>
+				<td style="vertical-align: top; text-align: left; ">
+					<ul>
+						<li>
+							Postgraduate Studentship, The Hong Kong University of Science and Technology (2008 - 2013)
+						</li>
+						<li>
+							Department Research Award, Department of Physics, The Hong Kong University of Science and Technology (2013)
+						</li>
+						<li>
+							Overseas Research Award, The Hong Kong University of Science and Technology (2012)
+						</li>
+						<li>
+							Best Teaching Assistant, Department of Physics, The Hong Kong University of Science and Technology (2011)
+						</li>
+						<li>
+							Financial support to attend Cold Spring Habour Summer School in Suzhou, Croucher Foundation (2011)
+						</li>
+						<li>
+							Research Travel Grant, The Hong Kong University of Science and Technology (2010)
+						</li>
+						<li>
+							Financial support to attend Canadian Undergraduate Physics Conference 2007, Paul and May Chu Research Awards (2007)
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br>
+		
+		<div style="font-size: 20pt;font-size:2vw">Overseas</div>
+		<table style="width:80%; font-size: 16pt; font-size:1.5vw; line-height: 20pt; line-height:2vw; padding: 1%;">
+			<tr><td style="width:5%"></td>
+				<td style="vertical-align: top; text-align: left; ">
+					<ul>
+						<li>
+							Travel Award, The 3<sup>rd</sup> International Conference on Cognitive Neurodynamics (2011)
+						</li>
+						<li>
+							Young Researchers Forum Best Project Presentation Award, The 3<sup>rd</sup> International Conference on Cognitive Neurodynamics (2011)
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		</div> 
+			
+		
+		<div class="gap gap-100" style="background-image:url(./bg/lake_view.jpg);">
+		<div style="position: relative; top: 75%; left: -100%; background-color: white; width: 45%;  
+		padding-top: 1%;padding-bottom: 1%; cursor:default "
+		data-20p-top-top="opacity:0;left:0" data-50p-top-top="opacity:0.7;left:0">
+			<div class="noselect" style="text-align: center; font-size: 20pt; font-size: 2vw">
+			Tai Tam Intermediate Reservoir,<br/>Hong Kong Island</div>
+		</div>
+		</div>
+		<div class="content" style="background-image: url(./bg/geometry2.png); " id="contact">
+		<img src="img/contact.png" alt="" style="opacity:0.7;height:28px; height:4vw">
+		<div style="width:90%;  font-size: 16pt; font-size:1.5vw"><br></div>
+			<table style="width: 80%; font-size: 1.5vw; ">
+				<tr>
+					<td style="padding: 1%; vertical-align: top; width:3%"></td>
+					<td style="padding: 1%; vertical-align: top; width:20%">Em@i1:</td>
+					<td style="padding: 1%; vertical-align: top; ">
+					<span style="text-decoration: underline;color:rgb(255,0,0)">chichung dot fung at riken dot jp</span> </td>
+				</tr>
+				<tr>
+					<td style="padding: 1%; vertical-align: top; width:3%"></td>
+					<td style="padding: 1%; vertical-align: top; width:20%">Postal address:</td>
+					<td style="padding: 1%; vertical-align: top; ">
+					Lab. for Neural Circuit Theory, RIKEN Brain Science Institute,
+					2-1 Hirosawa, Wako, Saitama, 351-0198 JAPAN</td>
+				</tr>
+			</table>
+					<br><br><br>
+			<div style="font-size: 16pt;font-size:1.6vw"><b>Acknowledgement</b><br></div>
+			
+			<table style="padding: 1%; width: 80%; font-size: 1.5vw; ">
+				<tr>
+					<td style="width:3%"></td>
+					<td>
+					This webpage is made using 
+					<a href="https://github.com/Prinzhorn/skrollr" target="_blank">Skrollr</a> library (the parallax effect) 
+					and jQuery library (the scroll-to-element function).  Background pattern is downloaded from 
+					<a href="http://subtlepatterns.com" target="_blank">subtlepatterns.com</a>.  Text art is 
+					provided by <a href="http://cooltext.com" target="_blank">cooltext.com</a>.
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					</td>
+				</tr>
+			</table>
+				
+		</div> 
+		
+		<div class="noselect button" style="bottom: 0%; left: 0%; background-color: #FFB3B3; color: #FF0000; " id="to_top">
+		<table style="width: 100%; height: 100%; border: 0; "><tr><td style="vertical-align: middle; text-align: center; ">TOP</td></tr></table>
+		</div>
+		
+		<div class="noselect button" style="bottom: 0%; left: 9%; background-color: #FFDFA2; color: #FFA500; " id="to_about">
+		<table style="width: 100%; height: 100%;  border: 0;"><tr><td style="vertical-align: middle; text-align: center; ">ABOUT</td></tr></table>
+		</div>
+		
+		<div class="noselect button" style="bottom: 0%; left: 18%; background-color: #FFFFB5; color: #C4C400; " id="to_theses">
+		<table style="width: 100%; height: 100%;  border: 0;"><tr><td style="vertical-align: middle; text-align: center; ">THESES</td></tr></table>
+		</div>
+		
+		<div class="noselect button" style="width:13%; bottom: 0%; left: 27%; background-color: #A7FFA7; color: #008000; " id="to_publication">
+		<table style="width: 100%; height: 100%;  border: 0;"><tr><td style="vertical-align: middle; text-align: center; ">PUBLICATIONS</td></tr></table>
+		</div>
+		
+		<div class="noselect button" style="bottom: 0%; left: 40%; background-color: #A6FFFF; color: #679091; " id="to_awards">
+		<table style="width: 100%; height: 100%;  border: 0;"><tr><td style="vertical-align: middle; text-align: center; ">AWARDS</td></tr></table>
+		</div>
+		
+		<div class="noselect button" style="bottom: 0%; left: 49%; background-color: #A6A6FF; color: #0000FF; " id="to_contact">
+		<table style="width: 100%; height: 100%; border: 0; "><tr><td style="vertical-align: middle; text-align: center; ">CONTACT</td></tr></table>
+		</div>
+		
+		<div class="noselect button" style="width:13%; bottom: 0%; left: 58%; background-color: #FFC2FF; color: #FF00FF; ">
+		<a href="http://nct.brain.riken.jp/" target="_blank" style="color: #FF00FF; text-decoration: none; ">
+		<table style="width: 100%; height: 100%;  border: 0;"><tr><td style="vertical-align: middle; text-align: center; font-size: 1.5vw;">
+		NCT RIKEN BSI</td></tr></table>
+		</a>
+		</div>
+		
+		<div class="noselect button" style="bottom: 0%; left: 71%; background-color: #cccccc; color: #000000; ">
+		<a href="http://www.brain.riken.jp/en/" target="_blank" style="color: #000000; text-decoration: none; ">
+		<table style="width: 100%; height: 100%;  border: 0;"><tr><td style="vertical-align: middle; text-align: center; ">RIKEN BSI</td></tr></table>
+		</a>
+		</div>
+		
+		
+		
+	</div>
+	
+ 
+	<script type="text/javascript" src="./skrollr.js"></script>
+
+	<script type="text/javascript">
+	  var UserAgent = navigator.userAgent.toLowerCase();
+	  var isAndroid = UserAgent.indexOf('android');
+	  if (isAndroid < 0)
+	  {
+		  skrollr.init({
+			  smoothScrolling: false,
+			  mobileDeceleration: 0.004
+		  });
+	  }
+	  $('body').css('background-image', 'url(./bg/geometry2.png)');
+	  window.onload = function() {
+	    if(!window.location.hash) {
+	      window.location = window.location + '#loaded';
+	      window.location.reload();
+	    }
+	  }
+	</script>
+	
+</body>
+
+</html>
